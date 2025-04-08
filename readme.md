@@ -7,7 +7,7 @@ arXiv: https://arxiv.org/abs/2502.16949
 ## Installation
     
     git clone https://github.com/HipGraph/SpTransX.git
-    cd FastKG
+    cd SpTransX
     pip install -e .
 
 # CPU/GPU Testing
