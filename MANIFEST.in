@@ -1,1 +1,2 @@
 recursive-include fastkg/datasets *
+recursive-include fastkg/streaming *
