@@ -4,6 +4,8 @@ This is the official implementation of the SparseTransX library accepted for pub
 
 arXiv: https://arxiv.org/abs/2502.16949
 
+Note: The repo currently has TransE only. Others are in raw code at the artifact evaluation repository here: https://github.com/OnixHoque/sptransx-mlsys2025-reproduce/. We are planning to migrate them here soon!
+
 ## Installation
     
     git clone https://github.com/HipGraph/SpTransX.git
@@ -16,17 +18,19 @@ To test fb15k dataset:
     cd ./tests
     python trans_e.py
 
+If you need to convert from RDF, TTL, or Neo4j format, please use the utility functions available at `./fastkg/converter.py`.
+
 # MultiGPU/MultiNode Testing 
 
 FastKG is compatible with PyTorch DDP and FSDP Wrapper. They can be utilized to perform MultiGPU/MultiNode training.
 
 # Streaming Dataset and Model
 
-FastKG supports streaming both model and dataset from disk in case they are too large to fit in CPU memory. The streaming is also available for distributed training. Examples are available below.
+FastKG supports streaming both the model and the dataset from disk in case they are too large to fit in CPU memory. The streaming is also available for distributed training. Examples are available below.
 
 ## CPU/GPU
 
-See the example in `./tests/trans_e_stream_dataset.py` and `./tests/trans_e_stream_model.py` on how to stream dataset and model on-demand instead of loading the whole in CPU memory.
+See the example in `./tests/trans_e_stream_dataset.py` and `./tests/trans_e_stream_model.py` on how to stream the dataset and model on-demand instead of loading the whole into CPU memory.
 
     cd ./tests/
     python trans_e_stream_dataset.py
@@ -53,5 +57,8 @@ Pass a filename in storage argument when creating `SparseTransE` model.
 
 
 > [!NOTE]  
-> Please note that some systems may not support memory mapped tensor (mmap is required for streaming the model since it uses memory mapped tensor) such as DVS in NERSC supercomputer. For NERSC, it is advised to use $PSCRATCH instead.
+> Please note that some systems may not support memory-mapped tensor (mmap is required for streaming the model since it uses memory mapped tensor) such as DVS in NERSC supercomputer. For NERSC, it is advised to use $PSCRATCH instead.
   
+# Contact
+
+Please contact the following person if you have any questions: Md Saidul Hoque Anik (anik@tamu.edu).
